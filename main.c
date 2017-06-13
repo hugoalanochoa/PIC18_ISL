@@ -46,6 +46,7 @@
 #include "mcc_generated_files/mcc.h"
 #include "interrupt_manager.h"
 #include "i2c.h"
+#include "ISL29501.h"
 
 
 
@@ -59,20 +60,10 @@
                          Main application
  */
  
- /**
- ** Reads I2C Register from sensor
- **
- ** \details
- **
- ** \return    Nothing
- **************************************************************************************/
-I2C_MESSAGE_STATUS
-SensorRead (
-            uint8_t  regadd,             /**< Register Address  */
-            uint8_t  *data,              /**< Data buffer  */
-            uint8_t     n_bytes);            /**< Number of bytes to read */
+
 
 uint8_t sensor_data = 0;
+uint32_t distance = 0;
 void InterruptHandlerHigh (void);
 void main(void)
 {
@@ -115,42 +106,19 @@ void main(void)
         delay--;
     }while(delay > 0);
 
-      SensorRead (0x00,  &sensor_data, 1);
-    
+
+      SensorInit();
+ // SensorMagitudeCal();
+ // SensorCrossTalkCal();
+  SensorReadAll();
 
     while (1)
     {
         // Add your application code
+        distance = SensorMeasure();
     }
 }
 
-
-
-
-/**
- ** Reads I2C Register from sensor
- **
- ** \details
- **
- ** \return    Nothing
- **************************************************************************************/
-I2C_MESSAGE_STATUS
-SensorRead (
-            uint8_t  regadd,             /**< Register Address  */
-            uint8_t  *data,              /**< Data buffer  */
-            uint8_t  n_bytes)            /**< Number of bytes to read */
-{
-
-  uint8_t RegAddr;
-  RegAddr = regadd;
-      I2C_MasterWrite(&RegAddr,n_bytes,0x57,&status);
-
-      I2C_MasterRead(data,n_bytes,0x57,&status);
-
-  return status;
-}
-
-  
 
 
 
@@ -164,6 +132,7 @@ SensorRead (
 void
 InterruptHandlerHigh ()
 {
+    
 INTERRUPT_InterruptManager();
 STA_LED_Toggle();
 }
