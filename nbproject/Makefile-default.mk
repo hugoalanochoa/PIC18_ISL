@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/pin_manager.c mcc_generated_files/interrupt_manager.c mcc_generated_files/tmr0.c mcc_generated_files/mcc.c mcc_generated_files/i2c.c mcc_generated_files/ext_int.c main.c ISL29501.c
+SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/pin_manager.c mcc_generated_files/interrupt_manager.c mcc_generated_files/tmr0.c mcc_generated_files/mcc.c mcc_generated_files/i2c.c mcc_generated_files/ext_int.c main.c ISL29501.c mcc_generated_files/pwm5.c mcc_generated_files/tmr4.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/tmr0.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/i2c.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/main.o ${OBJECTDIR}/ISL29501.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/pin_manager.o.d ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o.d ${OBJECTDIR}/mcc_generated_files/tmr0.o.d ${OBJECTDIR}/mcc_generated_files/mcc.o.d ${OBJECTDIR}/mcc_generated_files/i2c.o.d ${OBJECTDIR}/mcc_generated_files/ext_int.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/ISL29501.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/tmr0.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/i2c.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/main.o ${OBJECTDIR}/ISL29501.o ${OBJECTDIR}/mcc_generated_files/pwm5.o ${OBJECTDIR}/mcc_generated_files/tmr4.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/pin_manager.o.d ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o.d ${OBJECTDIR}/mcc_generated_files/tmr0.o.d ${OBJECTDIR}/mcc_generated_files/mcc.o.d ${OBJECTDIR}/mcc_generated_files/i2c.o.d ${OBJECTDIR}/mcc_generated_files/ext_int.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/ISL29501.o.d ${OBJECTDIR}/mcc_generated_files/pwm5.o.d ${OBJECTDIR}/mcc_generated_files/tmr4.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/tmr0.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/i2c.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/main.o ${OBJECTDIR}/ISL29501.o
+OBJECTFILES=${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/tmr0.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/i2c.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/main.o ${OBJECTDIR}/ISL29501.o ${OBJECTDIR}/mcc_generated_files/pwm5.o ${OBJECTDIR}/mcc_generated_files/tmr4.o
 
 # Source Files
-SOURCEFILES=mcc_generated_files/pin_manager.c mcc_generated_files/interrupt_manager.c mcc_generated_files/tmr0.c mcc_generated_files/mcc.c mcc_generated_files/i2c.c mcc_generated_files/ext_int.c main.c ISL29501.c
+SOURCEFILES=mcc_generated_files/pin_manager.c mcc_generated_files/interrupt_manager.c mcc_generated_files/tmr0.c mcc_generated_files/mcc.c mcc_generated_files/i2c.c mcc_generated_files/ext_int.c main.c ISL29501.c mcc_generated_files/pwm5.c mcc_generated_files/tmr4.c
 
 
 CFLAGS=
@@ -165,6 +165,22 @@ ${OBJECTDIR}/ISL29501.o: ISL29501.c  nbproject/Makefile-${CND_CONF}.mk
 	@${DEP_GEN} -d ${OBJECTDIR}/ISL29501.o 
 	@${FIXDEPS} "${OBJECTDIR}/ISL29501.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
+${OBJECTDIR}/mcc_generated_files/pwm5.o: mcc_generated_files/pwm5.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/pwm5.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/pwm5.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -I"mcc_generated_files" -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/mcc_generated_files/pwm5.o   mcc_generated_files/pwm5.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/mcc_generated_files/pwm5.o 
+	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/pwm5.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/mcc_generated_files/tmr4.o: mcc_generated_files/tmr4.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr4.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr4.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -I"mcc_generated_files" -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/mcc_generated_files/tmr4.o   mcc_generated_files/tmr4.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/mcc_generated_files/tmr4.o 
+	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/tmr4.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
 else
 ${OBJECTDIR}/mcc_generated_files/pin_manager.o: mcc_generated_files/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
@@ -229,6 +245,22 @@ ${OBJECTDIR}/ISL29501.o: ISL29501.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I"mcc_generated_files" -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/ISL29501.o   ISL29501.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/ISL29501.o 
 	@${FIXDEPS} "${OBJECTDIR}/ISL29501.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/mcc_generated_files/pwm5.o: mcc_generated_files/pwm5.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/pwm5.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/pwm5.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I"mcc_generated_files" -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/mcc_generated_files/pwm5.o   mcc_generated_files/pwm5.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/mcc_generated_files/pwm5.o 
+	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/pwm5.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/mcc_generated_files/tmr4.o: mcc_generated_files/tmr4.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr4.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr4.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I"mcc_generated_files" -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/mcc_generated_files/tmr4.o   mcc_generated_files/tmr4.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/mcc_generated_files/tmr4.o 
+	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/tmr4.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 
