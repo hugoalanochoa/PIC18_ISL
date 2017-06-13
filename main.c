@@ -47,6 +47,7 @@
 #include "interrupt_manager.h"
 #include "i2c.h"
 #include "ISL29501.h"
+#include "pwm5.h"
 
 
 
@@ -65,9 +66,12 @@
 uint8_t sensor_data = 0;
 uint32_t distance = 0;
 void InterruptHandlerHigh (void);
+void PWM_SetDutyPerc (uint32_t duty);
+void DistanceToPWM (uint32_t dist);
 void main(void)
 {
     int idx;
+    uint16_t tmp_distance;
     // Initialize the device
     SYSTEM_Initialize();
 
@@ -116,6 +120,16 @@ void main(void)
     {
         // Add your application code
         distance = SensorMeasure();
+        if (distance < 801)
+        {
+            tmp_distance = (uint16_t)distance;
+            DistanceToPWM(tmp_distance);
+        }
+        else
+        {
+            DistanceToPWM(0u);
+        }
+
     }
 }
 
@@ -134,10 +148,26 @@ InterruptHandlerHigh ()
 {
     
 INTERRUPT_InterruptManager();
-STA_LED_Toggle();
 }
 
 
+
+void PWM_SetDutyPerc (uint32_t duty)
+{
+    uint32_t new_pwm = (duty * ((uint32_t)1023)) /((uint32_t) 1000);
+    PWM5_LoadDutyValue(new_pwm);
+}
+
+
+void DistanceToPWM (uint32_t dist)
+{
+    uint32_t pwm_duty;
+    uint16_t final_duty;
+    
+    pwm_duty = (dist * (uint32_t)800) / ((uint32_t)1000);
+    final_duty = (uint16_t)pwm_duty;
+    PWM_SetDutyPerc(final_duty);
+}
 
 
 /**
