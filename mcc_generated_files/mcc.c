@@ -108,6 +108,8 @@
 
 #include "mcc.h"
 #include "i2c.h"
+#include "pwm5.h"
+#include "tmr4.h"
 
 void SYSTEM_Initialize(void)
 {
@@ -116,7 +118,9 @@ void SYSTEM_Initialize(void)
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     I2C_Initialize();
-  //  EXT_INT_Initialize();
+    TMR4_Initialize();
+    PWM5_Initialize();
+   // EXT_INT_Initialize();
     TMR0_Initialize();
 }
 
